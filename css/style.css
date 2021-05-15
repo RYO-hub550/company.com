@@ -1,0 +1,1415 @@
+@charset "UTF-8";
+html {
+  font-size: 62.5%;
+  font-family: "Yu Mincho Light", "YuMincho", "Yu Mincho", "游明朝体", sans-serif;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f7f7f7;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.slick-arrow {
+  display: none;
+}
+
+.title_box {
+  text-align: center;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.title_box .section_title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.title_box .sub_title {
+  font-size: 2rem;
+  color: #fbaf5d;
+}
+
+.title_box .sub_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* 垂直中心 */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* 水平中心 */
+}
+
+.title_box .sub_title:before,
+.title_box .sub_title:after {
+  border-top: 1px solid;
+  content: "";
+  width: 3em;
+  /* 線の長さ */
+}
+
+.title_box .sub_title:before {
+  margin-right: 1em;
+  /* 文字の右隣 */
+}
+
+.title_box .sub_title:after {
+  margin-left: 1em;
+  /* 文字の左隣 */
+}
+
+.title_box.black {
+  color: #000;
+}
+
+ul.sample1 {
+  counter-reset: li;
+  font: 14px/1.6 "arial narrow", sans-serif;
+  list-style: none;
+  padding: 0;
+}
+
+ul.sample1 li {
+  position: relative;
+  font-weight: bold;
+  line-height: 28px;
+  padding-left: 40px;
+  margin: 10px 0;
+}
+
+ul.sample1 li:nth-child(4n + 1) {
+  border: 1px #ffa79f;
+}
+
+ul.sample1 li:nth-child(4n + 2) {
+  border: 1px #fbaf5d;
+}
+
+ul.sample1 li:nth-child(4n + 3) {
+  border: 1px #9fcdff;
+}
+
+ul.sample1 li:nth-child(4n + 4) {
+  border: 1px #afebb6;
+}
+
+ul.sample1 li:before {
+  counter-increment: li;
+  content: counter(li);
+  position: absolute;
+  left: -1px;
+  color: #fff;
+  text-align: center;
+  line-height: 76px;
+  width: 76px;
+  height: 76px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+ul.sample1 li:nth-child(4n + 1):before {
+  background: #ffa79f;
+}
+
+ul.sample1 li:nth-child(4n + 2):before {
+  background: #fbaf5d;
+}
+
+ul.sample1 li:nth-child(4n + 3):before {
+  background: #9fcdff;
+}
+
+ul.sample1 li:nth-child(4n + 4):before {
+  background: #afebb6;
+}
+
+@media screen and (max-width: 768px) {
+  ul.sample1 li:before {
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  ul.sample1 li:before {
+    line-height: 100px;
+    width: 60px;
+    height: 100px;
+  }
+}
+
+/* ボタン共通設定 */
+.btn04 {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  display: inline-block;
+  padding: 10px 30px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-decoration: none;
+  outline: none;
+  /*はみ出す背景色を隠す*/
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/*hoverした際のボタンの形状*/
+.btn04:hover {
+  color: #fff;
+  background-color: orange;
+  border-color: transparent;
+  /*色の変化を遅らせる*/
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+
+/*線の設定*/
+.btn04 span {
+  display: block;
+  z-index: 2;
+}
+
+/*== 線から塗に変化（左から右） */
+/*線の設定*/
+.borderleft span::before,
+.borderleft span::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  width: 0;
+  height: 1px;
+  /*線の形状*/
+  background: #fbaf5d;
+  /*アニメーションの設定*/
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/*左上線*/
+.borderleft span::before {
+  left: 0;
+  top: 0;
+}
+
+/*左下線*/
+.borderleft span::after {
+  left: 0;
+  bottom: 0;
+}
+
+/*hoverをすると線が伸びる*/
+.borderleft:hover span::before,
+.borderleft:hover span::after {
+  width: 100%;
+}
+
+/*背景の設定*/
+.borderleft::before {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  /*背景の形状*/
+  height: 100%;
+  width: 0;
+  background: #fff;
+  /*アニメーションの設定*/
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/*hoverをすると背景が伸びる*/
+.borderleft:hover::before {
+  width: 100%;
+  /*0.4秒遅れてアニメーション*/
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+/* ボタン共通設定 */
+.btn05 {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  display: inline-block;
+  padding: 10px 30px;
+  color: #000;
+  background-color: orange;
+  text-decoration: none;
+  outline: none;
+  /*はみ出す背景色を隠す*/
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/*hoverした際のボタンの形状*/
+.btn05:hover {
+  color: #fff;
+  opacity: 0.8;
+  border-color: transparent;
+  /*色の変化を遅らせる*/
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+
+/*線の設定*/
+.btn05 span {
+  display: block;
+  z-index: 2;
+}
+
+/*== 線から塗に変化（左から右） */
+/*線の設定*/
+.borderleft span::before,
+.borderleft span::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  width: 0;
+  height: 1px;
+  /*線の形状*/
+  background: #fbaf5d;
+  /*アニメーションの設定*/
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/*左上線*/
+.borderleft span::before {
+  left: 0;
+  top: 0;
+}
+
+/*左下線*/
+.borderleft span::after {
+  left: 0;
+  bottom: 0;
+}
+
+/*hoverをすると線が伸びる*/
+.borderleft:hover span::before,
+.borderleft:hover span::after {
+  width: 100%;
+}
+
+/*背景の設定*/
+.borderleft::before {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  /*背景の形状*/
+  height: 100%;
+  width: 0;
+  background: #fbaf5d;
+  /*アニメーションの設定*/
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/*hoverをすると背景が伸びる*/
+.borderleft:hover::before {
+  width: 100%;
+  /*0.4秒遅れてアニメーション*/
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+/*==================================================
+　5-2-7 3本線が奥行きを持って回転して×に
+===================================*/
+/*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
+.openbtn7 {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  position: relative;
+  /*ボタン内側の基点となるためrelativeを指定*/
+  background: #fff;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+/*ボタン内側*/
+.openbtn7 .openbtn-area {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.openbtn7 span {
+  display: inline-block;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  /*アニメーションの設定*/
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #000;
+  color: #000;
+  width: 45%;
+}
+
+.openbtn7 span:nth-of-type(1) {
+  top: 15px;
+}
+
+.openbtn7 span:nth-of-type(2) {
+  top: 23px;
+}
+
+.openbtn7 span:nth-of-type(3) {
+  top: 31px;
+}
+
+/*activeクラスが付与されると
+線と周りのエリアが回転して×になる*/
+.openbtn7.active .openbtn-area {
+  -webkit-transform: rotateY(-360deg);
+          transform: rotateY(-360deg);
+}
+
+.openbtn7.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  -webkit-transform: translateY(6px) rotate(-135deg);
+          transform: translateY(6px) rotate(-135deg);
+  width: 30%;
+}
+
+.openbtn7.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn7.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  -webkit-transform: translateY(-6px) rotate(135deg);
+          transform: translateY(-6px) rotate(135deg);
+  width: 30%;
+}
+
+.openbtn7 {
+  display: none;
+}
+
+@media screen and (max-width: 375px) {
+  .openbtn7 {
+    z-index: 5;
+    display: block;
+  }
+}
+
+/*========= ナビゲーションのためのCSS ===============*/
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: orange;
+  border-bottom: 2px solid white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.header .header_box {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 0 0 3rem;
+  padding-bottom: 1rem;
+}
+
+.header .header_box .header_img {
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.header .nav {
+  position: absolute;
+  top: 0;
+  right: 3rem;
+}
+
+.header .nav .nav_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.header .nav .nav_list .nav_item {
+  margin-right: 2.4rem;
+}
+
+.header .nav .nav_list .nav_item a {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 100px;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.header .nav .nav_item:hover {
+  cursor: pointer;
+  opacity: .8;
+  background-color: #fff;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.header .nav .nav_item a:hover {
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+@media screen and (max-width: 768px) {
+  .header .header_box {
+    width: 100px;
+  }
+  .header .header_box .header_img {
+    width: 100px;
+    height: 100%;
+    padding: 0;
+  }
+  .header .nav .nav_list .nav_item {
+    margin-right: 1.3rem;
+  }
+  .header .nav .nav_list .nav_item a {
+    font-size: 1.6rem;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    z-index: 999;
+  }
+  .header .header_box {
+    width: 100px;
+  }
+  .header .header_box .header_img {
+    width: 100px;
+    height: 100%;
+    padding: 0;
+  }
+  .header .nav {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ac6f3c;
+    -webkit-transform: all .3s;
+            transform: all .3s;
+  }
+  .header .nav .nav_list {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 100px auto 0;
+  }
+  .header .nav .nav_list .nav_item {
+    text-align: center;
+    margin: 10px auto;
+  }
+  .header .nav .nav_list .nav_item a {
+    color: #fff;
+    font-size: 2rem;
+    padding: 0;
+    height: 60px;
+  }
+  .header .nav .nav_list .nav_item a:hover {
+    opacity: .7;
+  }
+  .header .nav .nav_item:hover {
+    background-color: #ac6f3c;
+  }
+}
+
+.kv {
+  width: 100%;
+  height: 600px;
+  margin-top: 100px;
+}
+
+.kv .kv_img_box {
+  height: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.kv .kv_img_box .kv_img {
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: .7;
+}
+
+.kv .kv_img_box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.kv .kv_text_box {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  color: #000;
+  color: #000;
+  text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px -1px 0 #FFF, 0px 1px 0 #FFF, -1px 0 #FFF, -1px 0 0 #FFF, 1px 0 0 #FFF;
+  z-index: 2;
+  opacity: 1;
+}
+
+.kv .kv_text_box .kv_title {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  line-height: 2;
+}
+
+.kv .kv_text_box .kv_text1,
+.kv .kv_text_box .kv_text2 {
+  font-size: 2.5rem;
+  width: 100%;
+}
+
+.kv .kv_text_box .kv_text1 {
+  margin-bottom: 1.5rem;
+  margin-left: 10%;
+}
+
+.kv .kv_text_box .kv_text2 {
+  margin-left: 50%;
+}
+
+@media screen and (max-width: 375px) {
+  .kv .kv_text_box {
+    position: absolute;
+    top: 50%;
+  }
+  .kv .kv_text_box .kv_title {
+    font-size: 3rem;
+  }
+  .kv .kv_text_box .kv_text1,
+  .kv .kv_text_box .kv_text2 {
+    font-size: 2rem;
+  }
+  .kv .kv_text_box .kv_text1 {
+    margin-bottom: 1.5rem;
+    margin-left: 5%;
+  }
+  .kv .kv_text_box .kv_text2 {
+    margin-left: 30%;
+  }
+}
+
+.philosophy {
+  width: 100%;
+  height: 650px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+}
+
+.philosophy .common_inner .philosophy_content {
+  width: 100%;
+}
+
+.philosophy .common_inner .philosophy_content .philosophy_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 3rem auto;
+}
+
+.philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item {
+  width: 30%;
+  height: 400px;
+  background-color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-box-shadow: 0 3px 5px #000;
+          box-shadow: 0 3px 5px #000;
+  border-radius: 8px;
+}
+
+.philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_img {
+  width: 50%;
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 1rem;
+}
+
+.philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box {
+  padding: 5%;
+  text-align: center;
+}
+
+.philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box .philosophy_title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box .philosophy_desc {
+  font-size: 1.8rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  .philosophy {
+    width: 100%;
+    height: 100%;
+    margin: 50px auto 50px;
+    background-color: #fff;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item {
+    width: 90%;
+    height: 400px;
+    margin-bottom: 50px;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_img {
+    width: 200px;
+    height: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 1rem;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box {
+    padding: 5%;
+    text-align: center;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box .philosophy_title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box .philosophy_desc {
+    font-size: 1.8rem;
+    text-align: left;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .philosophy {
+    width: 100%;
+    height: 100%;
+    margin: 50px auto 50px;
+    background-color: #fff;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item {
+    width: 90%;
+    height: 450px;
+    margin-bottom: 50px;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_img {
+    width: 200px;
+    height: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 1rem;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box {
+    padding: 5%;
+    text-align: center;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box .philosophy_title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .philosophy .common_inner .philosophy_content .philosophy_list .philosophy_item .philosophy_box .philosophy_desc {
+    font-size: 1.8rem;
+    text-align: left;
+    line-height: 1.5;
+  }
+}
+
+.skill {
+  width: 100%;
+  height: 500px;
+  padding: 0 1%;
+  position: relative;
+  margin: 200px auto 50px;
+}
+
+.skill .skill_content {
+  margin: 0 auto;
+}
+
+.skill .skill_content .skill_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.skill .skill_content .skill_list .skill_item {
+  width: 300px;
+  height: 300px;
+  padding: 3%;
+  margin: 0 auto;
+}
+
+.skill .skill_content .skill_list .skill_item .skill_img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  background-color: #fff;
+  border: none;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+  padding: 15%;
+}
+
+.performance {
+  width: 100%;
+}
+
+.performance .performance_box {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.performance .performance_box .performance_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5rem;
+  padding: 0 5%;
+}
+
+.performance .performance_box .performance_item .performance_img {
+  width: 600px;
+  height: 300px;
+  margin-right: 50px;
+  -webkit-box-shadow: 0 3px 6px #000;
+          box-shadow: 0 3px 6px #000;
+}
+
+.performance .performance_box .performance_item .performance_text_box {
+  width: 350px;
+  padding: 3%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.performance .performance_box .performance_item .performance_text_box .performance_title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.performance .performance_box .performance_item .performance_text_box .performance_sub_text {
+  font-size: 1.8rem;
+  margin-bottom: 5rem;
+  line-height: 1.4;
+}
+
+.performance .performance_box .performance_item .performance_text_box a {
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: #fbaf5d;
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  padding: 3% 10%;
+}
+
+.performance .performance_box .performance_item .performance_text_box a:hover {
+  opacity: .7;
+}
+
+.performance .performance_box .performance_item.revers {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.performance .performance_box .performance_item.revers .performance_img {
+  margin-right: 0;
+}
+
+.performance .performance_box .performance_item.revers .performance_text_box {
+  margin-left: 50px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .performance {
+    margin-top: 10%;
+  }
+  .performance .performance_box .performance_item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 60px;
+  }
+  .performance .performance_box .performance_item .performance_img {
+    width: 90%;
+    height: 300px;
+    margin-right: 0;
+  }
+  .performance .performance_box .performance_item .performance_text_box {
+    width: 350px;
+    padding: 3%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .performance .performance_box .performance_item .performance_text_box .performance_title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .performance .performance_box .performance_item .performance_text_box .performance_sub_text {
+    font-size: 1.8rem;
+    margin-bottom: 5rem;
+    line-height: 1.4;
+  }
+  .performance .performance_box .performance_item .performance_text_box a {
+    font-size: 1.8rem;
+    width: 300px;
+    height: 200px;
+  }
+  .performance .performance_box .performance_item .performance_text_box a:hover {
+    opacity: .7;
+  }
+  .performance .performance_box .performance_item.revers {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  .performance .performance_box .performance_item.revers .performance_img {
+    margin-right: 0;
+  }
+  .performance .performance_box .performance_item.revers .performance_text_box {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .performance .performance_box .performance_item {
+    width: 350px;
+  }
+  .performance .performance_box .performance_item .performance_img {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+  }
+  .performance .performance_box .performance_item .performance_text_box {
+    width: 300px;
+    padding: 2%;
+  }
+  .performance .performance_box .performance_item .performance_text_box .performance_title {
+    font-size: 1.6rem;
+  }
+  .performance .performance_box .performance_item .performance_text_box .performance_sub_text {
+    font-size: 1.4rem;
+    margin-bottom: 5rem;
+  }
+  .performance .performance_box .performance_item .performance_text_box a {
+    font-size: 1.8rem;
+    width: 300px;
+    height: 200px;
+  }
+}
+
+.price {
+  width: 100%;
+  height: 950px;
+  color: #000;
+  background-color: #fff;
+}
+
+.price .common_inner .price_content {
+  width: 100%;
+}
+
+.price .common_inner .price_content .price_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  margin: 0 auto 5rem;
+}
+
+.price .common_inner .price_content .price_box .price_item {
+  width: 300px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 3px 3px #000;
+          box-shadow: 0 3px 3px #000;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box {
+  padding: 3% 5%;
+  line-height: 1.5;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_title {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  height: 66px;
+  padding-top: 3%;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_title {
+  position: relative;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text {
+  height: 135px;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_desc {
+  margin-bottom: 1rem;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text {
+  text-align: left;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text,
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_desc,
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_price {
+  font-size: 1.8rem;
+}
+
+.price .common_inner .price_content .price_box .price_item .price_text_box .price_price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.price .common_inner .price_content .price_point {
+  width: 70%;
+  height: 100px;
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 1% 5%;
+  -webkit-box-shadow: 0 3px 2px #000;
+          box-shadow: 0 3px 2px #000;
+}
+
+.price .common_inner .price_content .price_point .point_text {
+  text-align: left;
+  font-size: 1.8rem;
+  color: #000;
+  line-height: 1.4;
+}
+
+.price .common_inner .price_content .price_contact_box {
+  text-align: center;
+  margin: 3rem auto 3rem;
+}
+
+.price .common_inner .price_content .price_contact_box a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.price .common_inner .price_content .price_contact_box a:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .price {
+    height: 100%;
+  }
+  .price .common_inner .price_content .price_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 80%;
+    margin: 0 auto 5rem;
+  }
+  .price .common_inner .price_content .price_box .price_item {
+    width: 600px;
+    height: 550px;
+    margin: 0 auto 50px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_img {
+    height: 250px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box {
+    padding: 3% 8%;
+    height: 300px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_title {
+    font-size: 2.5rem;
+    height: 40px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_title.sp {
+    margin-bottom: 5rem;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_title.sp .pc_br {
+    display: none;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text {
+    height: 100px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_desc {
+    margin-bottom: 1rem;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text,
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_desc,
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_price {
+    font-size: 2rem;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_price {
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+  .price .common_inner .price_content .price_point {
+    height: 100%;
+  }
+  .price .common_inner .price_content .price_contact_box {
+    margin: 3rem auto 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .price .common_inner .price_content .price_box {
+    width: 90%;
+    margin: 0 auto 5rem;
+  }
+  .price .common_inner .price_content .price_box .price_item {
+    height: 100%;
+    width: 330px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box {
+    height: 300px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_title {
+    font-size: 2.3rem;
+    height: 40px;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_title.sp {
+    margin-bottom: 2rem;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text {
+    margin-bottom: 3rem;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_desc {
+    margin-bottom: 1rem;
+  }
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_sub_text,
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_desc,
+  .price .common_inner .price_content .price_box .price_item .price_text_box .price_price {
+    font-size: 1.8rem;
+  }
+  .price .common_inner .price_content .price_point {
+    height: 100%;
+  }
+  .price .common_inner .price_content .price_point .point_text {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+  .price .common_inner .price_content .price_contact_box {
+    margin: 3rem auto 3rem;
+    padding-bottom: 3rem;
+    width: 90%;
+  }
+}
+
+.production {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.production .production_box {
+  width: 100%;
+  text-align: center;
+}
+
+.production .production_box .production_item {
+  width: 80%;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.production .production_box .production_item .production_main_title {
+  font-size: 2rem;
+  color: #e53487;
+  margin-bottom: 1rem;
+  padding-top: 1%;
+}
+
+@media screen and (max-width: 768px) {
+  .production .production_box .production_item {
+    width: 95%;
+    height: 100px;
+  }
+  .production .production_box .production_item .production_main_title {
+    font-size: 1.6rem;
+  }
+  .production .production_box .production_item .production_desc {
+    padding: 0 15%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .production .production_box .production_item {
+    width: 95%;
+    height: 100px;
+  }
+  .production .production_box .production_item .production_main_title {
+    font-size: 1.6rem;
+  }
+  .production .production_box .production_item .production_desc {
+    padding: 0 5%;
+    font-size: 1rem;
+  }
+}
+
+.contact {
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+  background-color: #ac6f3c;
+}
+
+.contact .contact_title {
+  color: #fff;
+}
+
+.contact .contact_content .contact_box {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+.contact .contact_content .contact_box a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.contact .contact_content .contact_box a:hover {
+  color: #fff;
+}
+
+.contact .contact_content .contact_box .contact_text {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.contact .contact_content .contact_box .contact_desc {
+  font-size: 2.8rem;
+  margin-bottom: 6rem;
+  color: #fff;
+}
+
+.contact .contact_content .contact_box .contact_desc .sp_br {
+  display: none;
+}
+
+.contact .contact_content .contact_box .contact_desc span {
+  color: yellow;
+}
+
+@media screen and (max-width: 375px) {
+  .contact {
+    width: 100%;
+    height: 400px;
+    margin-top: 100px;
+  }
+  .contact .contact_content .contact_box {
+    text-align: center;
+    margin: 3rem auto;
+  }
+  .contact .contact_content .contact_box a {
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  .contact .contact_content .contact_box .contact_text {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .contact .contact_content .contact_box .contact_desc {
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+    color: #fff;
+  }
+  .contact .contact_content .contact_box .contact_desc .sp_br {
+    display: block;
+  }
+  .contact .contact_content .contact_box .contact_desc span {
+    color: yellow;
+  }
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+}
+
+footer .footer_inner {
+  padding: 3rem 0;
+}
+
+footer .footer_inner .footer_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  margin: 0 auto 50px;
+}
+
+footer .footer_inner .footer_list .footer_item {
+  font-size: 1.6rem;
+  margin-right: 30px;
+}
+
+footer .footer_inner .footer_list .footer_item a {
+  color: #000;
+}
+
+footer .footer_inner .footer_list .footer_item a:hover {
+  opacity: .7;
+}
+
+footer .footer_inner .footer_list .footer_item:last-child {
+  margin-right: 0;
+}
+
+footer .footer_inner small {
+  text-align: center;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 375px) {
+  footer {
+    width: 100%;
+    text-align: center;
+  }
+  footer .footer_inner {
+    padding: 3rem 0;
+  }
+  footer .footer_inner .footer_list {
+    display: block;
+    width: 90%;
+    margin: 0 auto 30px;
+  }
+  footer .footer_inner .footer_list .footer_item {
+    font-size: 1.4rem;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  footer .footer_inner .footer_list .footer_item a {
+    color: #000;
+  }
+  footer .footer_inner .footer_list .footer_item a:hover {
+    opacity: .7;
+  }
+  footer .footer_inner .footer_list .footer_item:last-child {
+    margin-right: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */
